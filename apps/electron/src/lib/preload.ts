@@ -1,10 +1,10 @@
 // See the Electron documentation for details on how to use preload scripts:
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
-import { contextBridge, ipcRenderer } from "electron";
+import { contextBridge, ipcRenderer } from 'electron';
 
-console.log("⏪", "Preload???");
+console.log('⏪⏪', 'Preload');
 
-contextBridge.exposeInMainWorld("electron", {
+contextBridge.exposeInMainWorld('electron', {
   send: (channel: string, data: any) => {
     ipcRenderer.send(channel, data);
   },
@@ -18,7 +18,7 @@ contextBridge.exposeInMainWorld("electron", {
   removeListener: (channel: string, func: (...args: any[]) => void) => {
     ipcRenderer.removeListener(channel, func);
   },
-  gcloud: (command: string) => {
-    return ipcRenderer.invoke("gcloud:run-command", command);
+  cmd: (command: string) => {
+    return ipcRenderer.invoke('cmd:run-command', command);
   },
 });

@@ -3,16 +3,48 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/electron/src",
   "projectType": "library",
-  "tags": ["apps/electron"],
+  "tags": [
+    "apps/electron"
+  ],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/electron",
         "main": "apps/electron/src/index.ts",
         "tsConfig": "apps/electron/tsconfig.lib.json",
-        "assets": ["apps/electron/*.md"]
+        "assets": [
+          "apps/electron/*.md"
+        ]
+      }
+    },
+    "watch": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/electron",
+        "main": "apps/electron/src/index.ts",
+        "tsConfig": "apps/electron/tsconfig.lib.json",
+        "assets": [
+          "apps/electron/*.md"
+        ],
+        "watch": true
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "build-ts"
+      ],
+      "options": {
+        "commands": [
+          "electron-forge start -p dist/apps/electron"
+        ]
       }
     }
   }
