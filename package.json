@@ -13,6 +13,8 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
+    "electron": "^32.1.2",
+    "electron-squirrel-startup": "^1.0.1",
     "rxjs": "~7.8.0",
     "zone.js": "~0.14.3"
   },
@@ -37,7 +39,7 @@
     "@swc/helpers": "~0.5.11",
     "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
-    "@typescript-eslint/utils": "^7.16.0",
+    "@typescript-eslint/utils": "^8.7.0",
     "angular-eslint": "^18.3.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
