@@ -1,0 +1,10 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+    // "source.fixAll.stylelint": "explicit",
+    // "source.organizeImports": "explicit",
+  },
+}

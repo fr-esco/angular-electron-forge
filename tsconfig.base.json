@@ -20,6 +20,9 @@
     "paths": {
       "@angular-electron-forge/electron": [
         "apps/electron/src/index.ts"
+      ],
+      "@preload": [
+        "apps/electron/src/lib/preload.ts"
       ]
     }
   },

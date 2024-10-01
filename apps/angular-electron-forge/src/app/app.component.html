@@ -1,1 +1,18 @@
-<aef-nx-welcome></aef-nx-welcome> <router-outlet></router-outlet>
+<aef-nx-welcome />
+
+<dl>
+  @for (dependency of dependencies(); track dependency.lib) {
+    <dt>{{ dependency.lib }}</dt>
+    <dd>{{ dependency.version }}</dd>
+  }
+</dl>
+
+<button
+  class="asd"
+  type="button"
+  (click)=""
+>
+  Asd
+</button>
+
+<router-outlet />
