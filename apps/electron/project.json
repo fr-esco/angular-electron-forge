@@ -17,7 +17,8 @@
         "main": "apps/electron/src/index.ts",
         "tsConfig": "apps/electron/tsconfig.lib.json",
         "assets": [
-          "apps/electron/*.md"
+          "apps/electron/*.md",
+          "forge.config.ts"
         ]
       }
     },
@@ -44,6 +45,30 @@
       "options": {
         "commands": [
           "electron-forge start -p dist/apps/electron"
+        ]
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "angular-electron-forge",
+            "electron"
+          ],
+          "target": "build",
+          "params": "ignore"
+        }
+      ],
+      "options": {
+        "cwd": "dist/apps/electron",
+        "env": {
+          "DEBUG": "electron-forge:*"
+        },
+        "parallel": false,
+        "commands": [
+          "npm install --omit=dev --package-lock=false",
+          "electron-forge package"
         ]
       }
     }

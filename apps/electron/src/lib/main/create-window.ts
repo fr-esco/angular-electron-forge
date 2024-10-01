@@ -1,7 +1,7 @@
-import { app, BrowserWindow } from 'electron';
-import path from 'node:path';
+import { app, BrowserWindow } from 'electron'
+import path from 'node:path'
 
-let mainWindow: BrowserWindow | null;
+let mainWindow: BrowserWindow | null
 
 export const createWindow = (): void => {
   // Create the browser window.
@@ -12,14 +12,14 @@ export const createWindow = (): void => {
       devTools: !app.isPackaged,
       preload: path.join(__dirname, '..', 'preload.js'),
     },
-  });
+  })
 
   const startURL = app.isPackaged
-    ? `file://${path.join(__dirname, 'angular-electron-forge', 'index.html')}`
-    : `http://localhost:4200`;
+    ? `file://${path.join(__dirname, '..', '..', '..', 'angular-electron-forge', 'browser', 'index.html')}`
+    : `http://localhost:4200`
 
-  mainWindow.loadURL(startURL);
+  mainWindow.loadURL(startURL)
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-};
+  mainWindow.webContents.openDevTools()
+}
