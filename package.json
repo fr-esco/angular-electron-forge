@@ -11,7 +11,8 @@
     "electron:reload": "nx run electron:start",
     "webapp:serve": "nx run angular-electron-forge:serve",
     "electron:package": "npx nx run electron:package --verbose",
-    "electron:make": "npx nx run electron:make --verbose"
+    "electron:make": "npx nx run electron:make --verbose",
+    "electron:publish": "npx nx run electron:publish --verbose"
   },
   "private": true,
   "dependencies": {

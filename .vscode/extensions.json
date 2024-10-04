@@ -1,7 +1,13 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
+    "angular.ng-template",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "firsttris.vscode-jest-runner"
+    "firsttris.vscode-jest-runner",
+    "heybourn.headwind",
+    "infinity1207.angular2-switcher",
+    "nrwl.angular-console",
   ]
 }
