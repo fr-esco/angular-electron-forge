@@ -30,4 +30,14 @@ module.exports = [
     // Override or add rules here
     rules: {},
   },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    // Override or add rules here
+    rules: {
+      '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        { accessibility: 'no-public' },
+      ],
+    },
+  },
 ];

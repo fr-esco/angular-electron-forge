@@ -1,0 +1,100 @@
+{
+  "name": "electron",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/electron/src",
+  "projectType": "library",
+  "tags": [
+    "apps/electron"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/electron",
+        "main": "apps/electron/src/index.ts",
+        "tsConfig": "apps/electron/tsconfig.lib.json",
+        "assets": [
+          "apps/electron/*.md",
+          "forge.config.ts"
+        ]
+      }
+    },
+    "watch": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/electron",
+        "main": "apps/electron/src/index.ts",
+        "tsConfig": "apps/electron/tsconfig.lib.json",
+        "assets": [
+          "apps/electron/*.md"
+        ],
+        "watch": true
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "build-ts"
+      ],
+      "options": {
+        "commands": [
+          "electron-forge start -p dist/apps/electron"
+        ]
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "angular-electron-forge",
+            "electron"
+          ],
+          "target": "build",
+          "params": "ignore"
+        }
+      ],
+      "options": {
+        "cwd": "dist/apps/electron",
+        "env": {
+          "DEBUG": "electron-forge:*"
+        },
+        "parallel": false,
+        "commands": [
+          "npm install --omit=dev --package-lock=false",
+          "electron-forge package"
+        ]
+      }
+    },
+    "make": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "angular-electron-forge",
+            "electron"
+          ],
+          "target": "build",
+          "params": "ignore"
+        }
+      ],
+      "options": {
+        "cwd": "dist/apps/electron",
+        "env": {
+          "DEBUG": "electron-forge:*,electron-windows-installer:*"
+        },
+        "parallel": false,
+        "commands": [
+          "npm install --omit=dev --package-lock=false",
+          "electron-forge make"
+        ]
+      }
+    }
+  }
+}

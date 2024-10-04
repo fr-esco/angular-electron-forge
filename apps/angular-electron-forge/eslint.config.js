@@ -1,10 +1,13 @@
-const nx = require('@nx/eslint-plugin');
-const baseConfig = require('../../eslint.config.js');
+const nx = require('@nx/eslint-plugin')
+
+const baseConfig = require('../../eslint.config.js')
+const customConfig = require('./eslint.custom.config.js')
 
 module.exports = [
   ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
+  ...customConfig,
   {
     files: ['**/*.ts'],
     rules: {
@@ -31,4 +34,4 @@ module.exports = [
     // Override or add rules here
     rules: {},
   },
-];
+]

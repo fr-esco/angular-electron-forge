@@ -8,12 +8,16 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/angular-electron-forge",
         "index": "apps/angular-electron-forge/src/index.html",
         "browser": "apps/angular-electron-forge/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/angular-electron-forge/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,7 +26,9 @@
             "input": "apps/angular-electron-forge/public"
           }
         ],
-        "styles": ["apps/angular-electron-forge/src/styles.scss"],
+        "styles": [
+          "apps/angular-electron-forge/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -45,9 +51,13 @@
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true
+        },
+        "electron": {
+          "baseHref": "./",
+          "outputPath": "dist/apps/electron/angular-electron-forge"
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "electron"
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
@@ -72,7 +82,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/angular-electron-forge/jest.config.ts"
       }
@@ -83,6 +95,14 @@
         "buildTarget": "angular-electron-forge:build",
         "staticFilePath": "dist/apps/angular-electron-forge/browser",
         "spa": true
+      }
+    },
+    "wait": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "wait-on http://localhost:4200"
+        ]
       }
     }
   }

@@ -1,0 +1,16 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.customData": [
+    ".vscode/tailwind.json"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+    // "source.fixAll.stylelint": "explicit",
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ":\\s*?[\"'`]([^\"'`]*).*?,",
+    "(?:const|let|var)\\s+[\\w$_][_\\w\\d]*\\s*=\\s*['\\\"](.*?)['\\\"]"
+  ]
+}
