@@ -71,6 +71,30 @@
           "electron-forge package"
         ]
       }
+    },
+    "make": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "angular-electron-forge",
+            "electron"
+          ],
+          "target": "build",
+          "params": "ignore"
+        }
+      ],
+      "options": {
+        "cwd": "dist/apps/electron",
+        "env": {
+          "DEBUG": "electron-forge:*,electron-windows-installer:*"
+        },
+        "parallel": false,
+        "commands": [
+          "npm install --omit=dev --package-lock=false",
+          "electron-forge make"
+        ]
+      }
     }
   }
 }

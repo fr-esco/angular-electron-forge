@@ -10,7 +10,8 @@
     "electron:watch": "nx run electron:watch",
     "electron:reload": "nx run electron:start",
     "webapp:serve": "nx run angular-electron-forge:serve",
-    "electron:package": "npx nx run electron:package --verbose"
+    "electron:package": "npx nx run electron:package --verbose",
+    "electron:make": "npx nx run electron:make --verbose"
   },
   "private": true,
   "dependencies": {
