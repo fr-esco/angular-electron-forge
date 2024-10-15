@@ -2,6 +2,8 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "conventionalCommits.autoCommit": false,
+  "conventionalCommits.scopes": [],
   "css.customData": [
     ".vscode/tailwind.json"
   ],

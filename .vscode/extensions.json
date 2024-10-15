@@ -9,5 +9,8 @@
     "heybourn.headwind",
     "infinity1207.angular2-switcher",
     "nrwl.angular-console",
+    "wmaurer.change-case",
+    "streetsidesoftware.code-spell-checker",
+    "vivaxy.vscode-conventional-commits",
   ]
 }
